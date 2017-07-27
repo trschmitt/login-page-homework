@@ -6,13 +6,6 @@ router.get("/", (req, res) => {
   res.render("index", {});
 })
 
-let user = {
-  name: "user",
-  email: "email@email.com",
-  password: "password"
-};
-
-
 router.post("/form", (req, res) => {
 	console.log("New Request", req.body);
 

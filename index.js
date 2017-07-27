@@ -19,20 +19,40 @@ app.use(morgan("dev"));
 
 app.use(cookieParser());
 
+app.use(require("./loginRoutes"));
+
 app.use(session({
   secret: 's1744439857-jshaf348957uo-eusjdflhaksjhd',
   resave: false,
   saveUninitialized: false
 }));
 
-app.use(require("./loginRoutes"));
+
+let user = {
+  name: "user",
+  email: "email@email.com",
+  password: "password"
+};
+
+app.use((req, res, next) => {
+	console.log(req.sessions);
+	if (!req.session.views) {
+		req.session.views = 0;
+	}
+	req.session.views += 1;
+	next();
+})
 
 app.use((req, res, next) => {
   if (req.body.name === user.name) {
-    req.session.name = req.query.name;
+    req.session.name = req.body.name;
     return;
   }
   next();
+})
+
+app.use((req, res, next) => {
+
 })
 
 app.listen(3010, () => {
