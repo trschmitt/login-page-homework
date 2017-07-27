@@ -2,11 +2,14 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Home</title>
+    <title>Login Page</title>
   </head>
   <body>
-    <form action="/login" method="post">
-      <a href="./"><button type="submit" name="button"></button></a>
+    <form class="login" action="/form" method="post">
+      <input type="text" name="name" value="" placeholder="Name">
+      <input type="email" name="email" placeholder="Email">
+      <input type="password" name="password" placeholder="Password">
+      <button type="submit">Login</button>
     </form>
   </body>
 </html>

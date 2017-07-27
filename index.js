@@ -19,16 +19,20 @@ app.use(morgan("dev"));
 
 app.use(cookieParser());
 
-// app.use(session({
-//   secret: 's1744439857-jshaf348957uo-eusjdflhaksjhd',
-//   resave: false,
-//   saveUninitialized: false
-// }));
+app.use(session({
+  secret: 's1744439857-jshaf348957uo-eusjdflhaksjhd',
+  resave: false,
+  saveUninitialized: false
+}));
 
 app.use(require("./loginRoutes"));
 
-app.post("/", (req, res) => {
-  res.send("home")
+app.use((req, res, next) => {
+  if (req.body.name === user.name) {
+    req.session.name = req.query.name;
+    return;
+  }
+  next();
 })
 
 app.listen(3010, () => {
