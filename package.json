@@ -1,0 +1,23 @@
+{
+  "name": "login-page",
+  "version": "1.0.0",
+  "description": "July 25th homework involving creating a login page using express and node.js. Must include storing sessions and a seperate login page.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "login-page-homework"
+  },
+  "keywords": [
+    "express",
+    "node",
+    "sessions"
+  ],
+  "author": "Tristan Schmitt",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3"
+  }
+}
