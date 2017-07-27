@@ -34,7 +34,7 @@ let user = {
   password: "password"
 };
 
-app.use((req, res, next) => {
+app.use("/", (req, res, next) => {
 	console.log(req.sessions);
 	if (!req.session.views) {
 		req.session.views = 0;
@@ -43,17 +43,15 @@ app.use((req, res, next) => {
 	next();
 })
 
-app.use((req, res, next) => {
+app.use("/", (req, res, next) => {
   if (req.body.name === user.name) {
     req.session.name = req.body.name;
+    console.log(req.session);
     return;
   }
   next();
 })
 
-app.use((req, res, next) => {
-
-})
 
 app.listen(3010, () => {
 	console.log("Successfully running at http://localhost:3010");
